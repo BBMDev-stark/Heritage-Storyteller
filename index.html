@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="vi" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Di Sản Văn Hóa Việt Nam</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&amp;family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #FDFBF7;
+      --bg-secondary: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --accent-red: #8B1538;
+      --accent-gold: #D4AF37;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #main-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* EPIC HERO SECTION - Centered & Captivating */
+    .hero-epic-center {
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at center, #1a0f14 0%, #0A0A0A 100%);
+      overflow: hidden;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    /* Dramatic Light Effects */
+    .light-beam-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: radial-gradient(ellipse at left center, rgba(139, 21, 56, 0.35), transparent 65%);
+      pointer-events: none;
+      animation: beamPulseLeft 8s ease-in-out infinite;
+    }
+
+    @keyframes beamPulseLeft {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .light-beam-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: radial-gradient(ellipse at right center, rgba(212, 175, 55, 0.3), transparent 65%);
+      pointer-events: none;
+      animation: beamPulseRight 8s ease-in-out infinite;
+    }
+
+    @keyframes beamPulseRight {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Ornamental Corner Frames */
+    .corner-frame {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border: 3px solid rgba(212, 175, 55, 0.5);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .corner-frame::before,
+    .corner-frame::after {
+      content: '';
+      position: absolute;
+      background: rgba(212, 175, 55, 0.8);
+      animation: cornerShimmer 4s ease-in-out infinite;
+    }
+
+    @keyframes cornerShimmer {
+      0%, 100% { 
+        opacity: 0.4; 
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+      }
+      50% { 
+        opacity: 1; 
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+      }
+    }
+
+    .corner-frame.top-left {
+      top: 8%;
+      left: 8%;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .corner-frame.top-left::before {
+      top: -3px;
+      left: -3px;
+      width: 40px;
+      height: 3px;
+    }
+
+    .corner-frame.top-left::after {
+      top: -3px;
+      left: -3px;
+      width: 3px;
+      height: 40px;
+    }
+
+    .corner-frame.top-right {
+      top: 8%;
+      right: 8%;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .corner-frame.top-right::before {
+      top: -3px;
+      right: -3px;
+      width: 40px;
+      height: 3px;
+    }
+
+    .corner-frame.top-right::after {
+      top: -3px;
+      right: -3px;
+      width: 3px;
+      height: 40px;
+    }
+
+    .corner-frame.bottom-left {
+      bottom: 8%;
+      left: 8%;
+      border-right: none;
+      border-top: none;
+    }
+
+    .corner-frame.bottom-left::before {
+      bottom: -3px;
+      left: -3px;
+      width: 40px;
+      height: 3px;
+    }
+
+    .corner-frame.bottom-left::after {
+      bottom: -3px;
+      left: -3px;
+      width: 3px;
+      height: 40px;
+    }
+
+    .corner-frame.bottom-right {
+      bottom: 8%;
+      right: 8%;
+      border-left: none;
+      border-top: none;
+    }
+
+    .corner-frame.bottom-right::before {
+      bottom: -3px;
+      right: -3px;
+      width: 40px;
+      height: 3px;
+    }
+
+    .corner-frame.bottom-right::after {
+      bottom: -3px;
+      right: -3px;
+      width: 3px;
+      height: 40px;
+    }
+
+    /* Cultural Icons Row */
+    .cultural-icons-row {
+      display: flex;
+      gap: 5rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+      animation: iconsReveal 1.5s ease-out;
+    }
+
+    @keyframes iconsReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .cultural-icon-single {
+      font-size: 7rem;
+      animation: iconLevitate 5s ease-in-out infinite;
+      filter: drop-shadow(0 15px 40px rgba(212, 175, 55, 0.5));
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .cultural-icon-single::after {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: -1;
+    }
+
+    .cultural-icon-single:hover {
+      transform: scale(1.25) translateY(-15px) rotate(10deg);
+      filter: drop-shadow(0 20px 60px rgba(212, 175, 55, 0.8));
+    }
+
+    .cultural-icon-single:hover::after {
+      opacity: 1;
+    }
+
+    .cultural-icon-single:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .cultural-icon-single:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .cultural-icon-single:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes iconLevitate {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    /* Hero Content */
+    .hero-content-center {
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      animation: contentFadeIn 2s ease-out;
+    }
+
+    @keyframes contentFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Majestic Title */
+    .title-majestic {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      background: linear-gradient(135deg, 
+        #FFFFFF 0%,
+        #FFD700 25%,
+        #FFFFFF 50%,
+        #D4AF37 75%,
+        #FFFFFF 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerGold 6s linear infinite;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+      filter: drop-shadow(0 5px 30px rgba(212, 175, 55, 0.4));
+    }
+
+    @keyframes shimmerGold {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Decorative Divider */
+    .divider-ornate {
+      width: 300px;
+      height: 3px;
+      margin: 2.5rem auto;
+      position: relative;
+      background: linear-gradient(90deg, 
+        transparent, 
+        rgba(212, 175, 55, 0.8) 10%,
+        rgba(255, 215, 0, 1) 50%,
+        rgba(212, 175, 55, 0.8) 90%,
+        transparent);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+
+    .divider-ornate::before {
+      content: '◆';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFD700;
+      font-size: 1.8rem;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+      animation: gemSpin 8s linear infinite;
+    }
+
+    @keyframes gemSpin {
+      0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+      50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.2); }
+    }
+
+    /* Subtitle */
+    .subtitle-elegant {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.9;
+      margin-bottom: 3rem;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* CTA Button */
+    .cta-magnificent {
+      display: inline-block;
+      padding: 1.5rem 4.5rem;
+      background: linear-gradient(135deg, 
+        var(--accent-red) 0%,
+        #A8203E 25%,
+        var(--accent-gold) 50%,
+        #A8203E 75%,
+        var(--accent-red) 100%);
+      background-size: 300% 100%;
+      color: #FFFFFF;
+      border-radius: 60px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.5s ease;
+      box-shadow: 
+        0 15px 50px rgba(139, 21, 56, 0.5),
+        0 0 60px rgba(212, 175, 55, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+      animation: btnGradientShift 3s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes btnGradientShift {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+
+    .cta-magnificent::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: inherit;
+      border-radius: 60px;
+      filter: blur(20px);
+      opacity: 0.7;
+      z-index: -1;
+      animation: btnGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes btnGlow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .cta-magnificent:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 
+        0 20px 70px rgba(139, 21, 56, 0.7),
+        0 0 80px rgba(212, 175, 55, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Stats Display */
+    .stats-showcase {
+      display: flex;
+      gap: 4rem;
+      justify-content: center;
+      margin-top: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFD700, #D4AF37, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.5));
+      animation: numberPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes numberPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Cards */
+    .card-modern {
+      background: var(--bg-secondary);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.02),
+        0 12px 24px rgba(0, 0, 0, 0.03);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(139, 21, 56, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 
+        0 8px 12px rgba(0, 0, 0, 0.04),
+        0 24px 48px rgba(139, 21, 56, 0.12);
+      border-color: var(--accent-red);
+    }
+
+    .card-modern:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(139, 21, 56, 0.05);
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(139, 21, 56, 0.1);
+      border-color: rgba(139, 21, 56, 0.2);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 8px 24px rgba(139, 21, 56, 0.2);
+    }
+
+    /* Product Cards */
+    .product-card {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(139, 21, 56, 0.05);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(139, 21, 56, 0.12);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, rgba(139, 21, 56, 0.03), rgba(212, 175, 55, 0.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      border-bottom: 1px solid rgba(139, 21, 56, 0.05);
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: width 0.3s;
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .nav-link:hover {
+      color: var(--accent-gold);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: rgba(26, 26, 26, 0.65);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Decorative Elements */
+    .decorative-line {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+      margin: 0 auto 2rem;
+      border-radius: 2px;
+    }
+
+    /* Grid Layouts */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-red), var(--accent-gold));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -3.5rem;
+      top: 0.5rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      border: 3px solid var(--bg-primary);
+      box-shadow: 0 0 0 3px rgba(139, 21, 56, 0.2);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .cultural-icons-row {
+        gap: 3rem;
+      }
+
+      .cultural-icon-single {
+        font-size: 4.5rem;
+      }
+
+      .stats-showcase {
+        gap: 2.5rem;
+      }
+
+      .corner-frame {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      .cultural-icons-row {
+        gap: 2rem;
+      }
+
+      .cultural-icon-single {
+        font-size: 3.5rem;
+      }
+
+      .stats-showcase {
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="main-wrapper"><!-- Navigation -->
+   <nav class="nav-bar">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-red), var(--accent-gold)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);">
+       🏮
+      </div><span style="font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #FFD700, #D4AF37); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Di Sản Việt</span>
+     </div>
+     <div class="hidden md:flex items-center gap-8"><a href="#hero" class="nav-link">Trang chủ</a> <a href="#about" class="nav-link">Giới thiệu</a> <a href="#features" class="nav-link">Đặc điểm</a> <a href="#heritage" class="nav-link">Di sản</a>
+     </div>
+    </div>
+   </nav><!-- EPIC HERO SECTION - Centered & Captivating -->
+   <section id="hero" class="hero-epic-center"><!-- Light Beams -->
+    <div class="light-beam-left"></div>
+    <div class="light-beam-right"></div><!-- Decorative Corner Frames -->
+    <div class="corner-frame top-left"></div>
+    <div class="corner-frame top-right"></div>
+    <div class="corner-frame bottom-left"></div>
+    <div class="corner-frame bottom-right"></div><!-- Hero Content -->
+    <div class="hero-content-center"><!-- Cultural Icons Row -->
+     <div class="cultural-icons-row">
+      <div class="cultural-icon-single" title="Đèn Lồng">
+       🏮
+      </div>
+      <div class="cultural-icon-single" title="Bình Gốm">
+       🏺
+      </div>
+      <div class="cultural-icon-single" title="Áo Dài">
+       👗
+      </div>
+     </div><!-- Majestic Title -->
+     <h1 id="main-heading" class="title-majestic">DI SẢN VĂN HÓA<br>
+      VIỆT NAM</h1><!-- Ornate Divider -->
+     <div class="divider-ornate"></div><!-- Subtitle -->
+     <p id="hero-subtitle" class="subtitle-elegant">Khám phá hành trình ngàn năm của những giá trị văn hóa truyền thống.<br>
+       Nơi lịch sử, nghệ thuật và tâm hồn dân tộc hòa quyện trong từng sản phẩm thủ công.</p><!-- CTA Button --> <button id="hero-cta" onclick="window.location.href = 'braille/index.html';" class="cta-magnificent"> <span>✨ KHÁM PHÁ NGAY ✨</span> </button> <!-- Stats Showcase -->
+     <div class="stats-showcase">
+      <div class="stat-item">
+       <div class="stat-number">
+        3000+
+       </div>
+       <div class="stat-label">
+        Năm Lịch Sử
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        54
+       </div>
+       <div class="stat-label">
+        Dân Tộc
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        1000+
+       </div>
+       <div class="stat-label">
+        Làng Nghề
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" style="padding: 8rem 1.5rem; background: var(--bg-secondary);">
+    <div class="max-w-7xl mx-auto">
+     <div class="fade-in section-header">
+      <h2 id="about-heading" class="section-title">Câu Chuyện Di Sản</h2>
+      <div class="decorative-line"></div>
+      <p class="section-subtitle">Việt Nam - đất nước với 4000 năm văn hiến, nơi mỗi sản phẩm đều mang trong mình một phần lịch sử</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="fade-in card-modern">
+       <div class="product-image mb-6">
+        🎨
+       </div>
+       <h3 class="text-2xl font-bold mb-3" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Nghệ Thuật Truyền Thống</h3>
+       <p style="color: rgba(26, 26, 26, 0.7); line-height: 1.7;">Từ những chiếc nón lá mềm mại, áo dài duyên dáng, đến những sản phẩm gốm sứ tinh xảo, mỗi tác phẩm đều được tạo nên từ đôi bàn tay tài hoa của nghệ nhân.</p>
+      </div>
+      <div class="fade-in card-modern">
+       <div class="product-image mb-6">
+        🏺
+       </div>
+       <h3 class="text-2xl font-bold mb-3" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Bảo Tồn &amp; Phát Triển</h3>
+       <p style="color: rgba(26, 26, 26, 0.7); line-height: 1.7;">Trong thời đại hiện đại, việc bảo tồn và phát triển các nghề thủ công truyền thống trở nên quan trọng hơn bao giờ hết. Mỗi sản phẩm là một phần của di sản văn hóa phi vật thể.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Features Section -->
+   <section id="features" style="padding: 8rem 1.5rem; background: var(--bg-primary);">
+    <div class="max-w-7xl mx-auto">
+     <div class="fade-in section-header">
+      <h2 id="features-heading" class="section-title">Giá Trị Cốt Lõi</h2>
+      <div class="decorative-line"></div>
+      <p class="section-subtitle">Những giá trị mà chúng tôi mang đến cho cộng đồng và du khách quốc tế</p>
+     </div>
+     <div class="grid-3">
+      <div class="fade-in feature-card">
+       <div class="feature-icon">
+        📚
+       </div>
+       <h3 class="text-xl font-bold mb-3 text-center" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Giáo Dục Văn Hóa</h3>
+       <p class="text-center" style="color: rgba(26, 26, 26, 0.7);">Mỗi sản phẩm đều có một câu chuyện lịch sử độc đáo, được kể lại một cách sinh động và hấp dẫn.</p>
+      </div>
+      <div class="fade-in feature-card">
+       <div class="feature-icon">
+        🎨
+       </div>
+       <h3 class="text-xl font-bold mb-3 text-center" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Bảo Tồn Di Sản</h3>
+       <p class="text-center" style="color: rgba(26, 26, 26, 0.7);">Góp phần gìn giữ những giá trị văn hóa truyền thống Việt Nam, hỗ trợ các làng nghề duy trì và phát triển.</p>
+      </div>
+      <div class="fade-in feature-card">
+       <div class="feature-icon">
+        🌏
+       </div>
+       <h3 class="text-xl font-bold mb-3 text-center" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Kết Nối Quốc Tế</h3>
+       <p class="text-center" style="color: rgba(26, 26, 26, 0.7);">Nội dung được viết đặc biệt để thu hút du khách quốc tế, giúp họ khám phá và trân trọng văn hóa Việt Nam.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Heritage Products Section -->
+   <section id="heritage" style="padding: 8rem 1.5rem; background: var(--bg-secondary);">
+    <div class="max-w-7xl mx-auto">
+     <div class="fade-in section-header">
+      <h2 id="heritage-heading" class="section-title">Sản Phẩm Di Sản</h2>
+      <div class="decorative-line"></div>
+      <p class="section-subtitle">Khám phá những sản phẩm thủ công truyền thống tiêu biểu của Việt Nam</p>
+     </div>
+     <div class="grid-4 mb-16">
+      <div class="fade-in product-card">
+       <div class="product-image">
+        👒
+       </div>
+       <div style="padding: 2rem;">
+        <h3 class="text-xl font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Nón Lá</h3>
+        <p style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.5); margin-bottom: 0.75rem; font-weight: 600;">3000+ năm lịch sử</p>
+        <p style="font-size: 0.95rem; color: rgba(26, 26, 26, 0.7); line-height: 1.6;">Biểu tượng văn hóa Việt Nam, từ làng nghề truyền thống đến tác phẩm nghệ thuật.</p>
+       </div>
+      </div>
+      <div class="fade-in product-card">
+       <div class="product-image">
+        🏺
+       </div>
+       <div style="padding: 2rem;">
+        <h3 class="text-xl font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Gốm Chu Đậu</h3>
+        <p style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.5); margin-bottom: 0.75rem; font-weight: 600;">600 năm nghệ thuật</p>
+        <p style="font-size: 0.95rem; color: rgba(26, 26, 26, 0.7); line-height: 1.6;">Kỹ thuật men hoa nâu độc đáo, di sản gốm cổ quý giá của đất Hải Dương.</p>
+       </div>
+      </div>
+      <div class="fade-in product-card">
+       <div class="product-image">
+        👗
+       </div>
+       <div style="padding: 2rem;">
+        <h3 class="text-xl font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Áo Dài</h3>
+        <p style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.5); margin-bottom: 0.75rem; font-weight: 600;">Linh hồn trang phục</p>
+        <p style="font-size: 0.95rem; color: rgba(26, 26, 26, 0.7); line-height: 1.6;">Vẻ đẹp duyên dáng, thanh lịch của phụ nữ Việt qua từng đường cắt tinh tế.</p>
+       </div>
+      </div>
+      <div class="fade-in product-card">
+       <div class="product-image">
+        🖼️
+       </div>
+       <div style="padding: 2rem;">
+        <h3 class="text-xl font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Tranh Đông Hồ</h3>
+        <p style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.5); margin-bottom: 0.75rem; font-weight: 600;">400+ năm truyền thống</p>
+        <p style="font-size: 0.95rem; color: rgba(26, 26, 26, 0.7); line-height: 1.6;">Nghệ thuật in khắc gỗ với màu sắc tự nhiên, mang ước vọng dân gian.</p>
+       </div>
+      </div>
+     </div><!-- Timeline -->
+     <div class="fade-in max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold mb-12 text-center" style="font-family: 'Cinzel', serif; background: linear-gradient(135deg, var(--accent-red), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hành Trình Lịch Sử</h3>
+      <div class="timeline">
+       <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="card-modern">
+         <h4 class="text-lg font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Thời kỳ Hùng Vương</h4>
+         <p style="color: rgba(26, 26, 26, 0.7); font-size: 0.95rem;">Khởi nguồn của nhiều nghề thủ công truyền thống, nền tảng văn hóa Việt Nam được hình thành.</p>
+        </div>
+       </div>
+       <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="card-modern">
+         <h4 class="text-lg font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Thế kỷ 14-15</h4>
+         <p style="color: rgba(26, 26, 26, 0.7); font-size: 0.95rem;">Thời kỳ hoàng kim của gốm Chu Đậu, tranh Đông Hồ ra đời và phát triển mạnh mẽ.</p>
+        </div>
+       </div>
+       <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="card-modern">
+         <h4 class="text-lg font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Thế kỷ 18</h4>
+         <p style="color: rgba(26, 26, 26, 0.7); font-size: 0.95rem;">Áo dài Việt Nam hình thành với thiết kế cơ bản, trở thành trang phục dân tộc.</p>
+        </div>
+       </div>
+       <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="card-modern">
+         <h4 class="text-lg font-bold mb-2" style="font-family: 'Cinzel', serif; color: var(--accent-red);">Thế kỷ 21</h4>
+         <p style="color: rgba(26, 26, 26, 0.7); font-size: 0.95rem;">Phục hồi và phát triển các nghề truyền thống, lan tỏa giá trị văn hóa ra thế giới.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section style="padding: 8rem 1.5rem; background: var(--bg-primary);">
+    <div class="max-w-3xl mx-auto text-center fade-in">
+     <div class="card-modern" style="padding: 4rem;">
+      <h2 class="text-4xl font-bold mb-4" style="font-family: 'Cinzel', serif; background: linear-gradient(135deg, var(--accent-red), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Bắt Đầu Hành Trình Khám Phá</h2>
+      <div class="decorative-line"></div>
+      <p class="text-lg mb-8" style="color: rgba(26, 26, 26, 0.7);">Cùng chúng tôi khám phá những câu chuyện hấp dẫn đằng sau mỗi sản phẩm thủ công. Mỗi tác phẩm đều mang trong mình một phần lịch sử và văn hóa Việt Nam.</p><button onclick="scrollToSection('hero')" class="cta-magnificent"> <span>🎨 KHÁM PHÁ NGAY 🎨</span> </button>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer style="padding: 4rem 1.5rem; background: var(--bg-secondary); border-top: 1px solid rgba(139, 21, 56, 0.1);">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+       <div class="flex items-center gap-3 mb-4">
+        <div style="width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-red), var(--accent-gold)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(139, 21, 56, 0.3);">
+         🏮
+        </div><span style="font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; background: linear-gradient(135deg, var(--accent-red), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Di Sản Việt</span>
+       </div>
+       <p style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.6); line-height: 1.6;">Bảo tồn và lan tỏa giá trị văn hóa truyền thống Việt Nam đến khắp thế giới.</p>
+      </div>
+      <div>
+       <h4 class="font-bold mb-3" style="color: var(--accent-red);">Liên Kết</h4>
+       <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 0.5rem;"><a href="#hero" style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.6); text-decoration: none;">Trang chủ</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="#about" style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.6); text-decoration: none;">Giới thiệu</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="#features" style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.6); text-decoration: none;">Đặc điểm</a></li>
+        <li style="margin-bottom: 0.5rem;"><a href="#heritage" style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.6); text-decoration: none;">Di sản</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-bold mb-3" style="color: var(--accent-red);">Sản Phẩm</h4>
+       <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: rgba(26, 26, 26, 0.6);">
+        <li style="margin-bottom: 0.5rem;">Nón Lá</li>
+        <li style="margin-bottom: 0.5rem;">Gốm Chu Đậu</li>
+        <li style="margin-bottom: 0.5rem;">Áo Dài</li>
+        <li style="margin-bottom: 0.5rem;">Tranh Đông Hồ</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="font-bold mb-3" style="color: var(--accent-red);">Liên Hệ</h4>
+       <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: rgba(26, 26, 26, 0.6);">
+        <li style="margin-bottom: 0.5rem;">📧 info@disanviet.vn</li>
+        <li style="margin-bottom: 0.5rem;">📱 +84 123 456 789</li>
+        <li style="margin-bottom: 0.5rem;">📍 Hà Nội, Việt Nam</li>
+       </ul>
+      </div>
+     </div>
+     <div style="border-top: 1px solid rgba(139, 21, 56, 0.1); padding-top: 2rem; text-align: center;">
+      <p style="font-size: 0.9rem; color: rgba(26, 26, 26, 0.5);">© 2024 Di Sản Việt. Tất cả quyền được bảo lưu.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      main_heading: "DI SẢN VĂN HÓA\nVIỆT NAM",
+      hero_subtitle: "Khám phá hành trình ngàn năm của những giá trị văn hóa truyền thống.\nNơi lịch sử, nghệ thuật và tâm hồn dân tộc hòa quyện trong từng sản phẩm thủ công.",
+      hero_cta: "✨ KHÁM PHÁ NGAY ✨",
+      about_heading: "Câu Chuyện Di Sản",
+      features_heading: "Giá Trị Cốt Lõi",
+      heritage_heading: "Sản Phẩm Di Sản",
+      bg_primary: "#FDFBF7",
+      bg_secondary: "#FFFFFF",
+      text_primary: "#1A1A1A",
+      accent_red: "#8B1538",
+      accent_gold: "#D4AF37",
+      font_family: "Playfair Display",
+      font_size: 16
+    };
+
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth Scroll
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Element SDK
+    async function onConfigChange(config) {
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+
+      const root = document.documentElement;
+      root.style.setProperty('--bg-primary', config.bg_primary || defaultConfig.bg_primary);
+      root.style.setProperty('--bg-secondary', config.bg_secondary || defaultConfig.bg_secondary);
+      root.style.setProperty('--text-primary', config.text_primary || defaultConfig.text_primary);
+      root.style.setProperty('--accent-red', config.accent_red || defaultConfig.accent_red);
+      root.style.setProperty('--accent-gold', config.accent_gold || defaultConfig.accent_gold);
+
+      const mainHeading = document.getElementById('main-heading');
+      if (mainHeading) {
+        const text = (config.main_heading || defaultConfig.main_heading).replace(/\n/g, '<br>');
+        mainHeading.innerHTML = text;
+        mainHeading.style.fontFamily = `${customFont}, serif`;
+        mainHeading.style.fontSize = `${baseSize * 4}px`;
+      }
+
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) {
+        heroSubtitle.innerHTML = (config.hero_subtitle || defaultConfig.hero_subtitle).replace(/\n/g, '<br>');
+        heroSubtitle.style.fontFamily = `Cormorant Garamond, serif`;
+        heroSubtitle.style.fontSize = `${baseSize * 1.4}px`;
+      }
+
+      const heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        const span = heroCta.querySelector('span');
+        if (span) {
+          span.textContent = config.hero_cta || defaultConfig.hero_cta;
+        }
+        heroCta.style.fontFamily = `Cinzel, serif`;
+        heroCta.style.fontSize = `${baseSize * 1.2}px`;
+      }
+
+      const aboutHeading = document.getElementById('about-heading');
+      if (aboutHeading) {
+        aboutHeading.textContent = config.about_heading || defaultConfig.about_heading;
+        aboutHeading.style.fontFamily = `Cinzel, serif`;
+        aboutHeading.style.fontSize = `${baseSize * 3}px`;
+      }
+
+      const featuresHeading = document.getElementById('features-heading');
+      if (featuresHeading) {
+        featuresHeading.textContent = config.features_heading || defaultConfig.features_heading;
+        featuresHeading.style.fontFamily = `Cinzel, serif`;
+        featuresHeading.style.fontSize = `${baseSize * 3}px`;
+      }
+
+      const heritageHeading = document.getElementById('heritage-heading');
+      if (heritageHeading) {
+        heritageHeading.textContent = config.heritage_heading || defaultConfig.heritage_heading;
+        heritageHeading.style.fontFamily = `Cinzel, serif`;
+        heritageHeading.style.fontSize = `${baseSize * 3}px`;
+      }
+
+      document.body.style.fontSize = `${baseSize}px`;
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig: defaultConfig,
+        onConfigChange: onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.bg_primary || defaultConfig.bg_primary,
+              set: (value) => {
+                config.bg_primary = value;
+                window.elementSdk.setConfig({ bg_primary: value });
+              }
+            },
+            {
+              get: () => config.bg_secondary || defaultConfig.bg_secondary,
+              set: (value) => {
+                config.bg_secondary = value;
+                window.elementSdk.setConfig({ bg_secondary: value });
+              }
+            },
+            {
+              get: () => config.text_primary || defaultConfig.text_primary,
+              set: (value) => {
+                config.text_primary = value;
+                window.elementSdk.setConfig({ text_primary: value });
+              }
+            },
+            {
+              get: () => config.accent_red || defaultConfig.accent_red,
+              set: (value) => {
+                config.accent_red = value;
+                window.elementSdk.setConfig({ accent_red: value });
+              }
+            },
+            {
+              get: () => config.accent_gold || defaultConfig.accent_gold,
+              set: (value) => {
+                config.accent_gold = value;
+                window.elementSdk.setConfig({ accent_gold: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['main_heading', config.main_heading || defaultConfig.main_heading],
+          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+          ['hero_cta', config.hero_cta || defaultConfig.hero_cta],
+          ['about_heading', config.about_heading || defaultConfig.about_heading],
+          ['features_heading', config.features_heading || defaultConfig.features_heading],
+          ['heritage_heading', config.heritage_heading || defaultConfig.heritage_heading]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ba51a727246a2f1',t:'MTc2NzgwNjE5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

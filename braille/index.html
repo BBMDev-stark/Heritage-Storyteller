@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage Storyteller</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>@view-transition { navigation: auto; }</style>
+  
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="app-wrapper">
+   <div class="floating-lantern">
+    🏮
+   </div>
+   <div class="floating-lantern">
+    🎋
+   </div>
+   <div class="floating-lantern">
+    🏺
+   </div>
+   <div class="container">
+    <header class="header">
+     <h1 class="main-title" id="mainTitle">Heritage Storyteller</h1>
+     <p class="subtitle" id="subtitle">Số hóa câu chuyện làng nghề Việt Nam</p>
+    </header>
+    <div class="input-section"><label class="input-label" id="inputLabel" for="craftInput">Nhập tên sản phẩm thủ công:</label> <input type="text" id="craftInput" class="craft-input" placeholder="Ví dụ: Nón lá Huế, Gốm Bát Tràng, Tranh Đông Hồ...">
+     <div class="examples"><span class="example-tag" data-craft="Nón lá Huế">🎋 Nón lá Huế</span> <span class="example-tag" data-craft="Gốm Bát Tràng">🏺 Gốm Bát Tràng</span> <span class="example-tag" data-craft="Lụa Hà Đông">🧵 Lụa Hà Đông</span> <span class="example-tag" data-craft="Tranh Đông Hồ">🎨 Tranh Đông Hồ</span> <span class="example-tag" data-craft="Đồ gỗ Đồng Kỵ">🪵 Đồ gỗ Đồng Kỵ</span>
+     </div><button class="discover-button" id="discoverButton"> <span id="buttonText">Khám phá câu chuyện</span>
+      <div class="loading-spinner" id="loadingSpinner"></div></button>
+    </div>
+    <footer class="footer">
+     <p class="footer-text" id="footerText">Bảo tồn di sản - Kết nối thế h���</p>
+    </footer>
+   </div><!-- Toast Message -->
+   <div class="toast-message" id="toastMessage"></div><!-- 3D Book Overlay -->
+   <div class="book-overlay" id="bookOverlay"><button class="close-book" id="closeBook">×</button>
+    <div class="book-wrapper">
+     <div class="book-3d" id="book3d">
+      <div class="book-cover" id="bookCover"><span id="coverTitle"></span>
+      </div>
+      <div class="book-pages"><!-- Trang trái cố định -->
+       <div class="book-page left-page">
+        <div class="craft-image-container"><img src="" alt="" class="craft-image" id="craftImage">
+        </div>
+        <h2 class="book-title" id="bookTitle"></h2>
+        <div class="sdg-badge"><span>🌱</span> <span>SDG 8 &amp; 11</span>
+        </div>
+        <div class="page-number">
+         1
+        </div>
+       </div><!-- TRANG 1: Phải có thể lật -->
+       <div class="flippable-page" id="flippablePage1" style="z-index: 30;"><!-- Mặt trước (nội dung câu chuyện phần 1) -->
+        <div class="page-front">
+         <div class="story-content" id="storyContent1"></div>
+         <div class="page-number" style="position: absolute; bottom: 30px; right: 40px; font-family: 'Crimson Text', serif; font-size: 16px; color: rgba(44, 24, 16, 0.4); font-style: italic;">
+          2
+         </div>
+        </div><!-- Mặt sau (trang trống) -->
+        <div class="page-back">
+         <div class="flip-hint">
+          <div style="font-size: 64px;">
+           🎨
+          </div>
+          <div style="font-size: 28px; font-weight: 600; margin-top: 20px;">
+           Nghệ Thuật Truyền Thống
+          </div>
+          <div style="font-size: 18px; color: rgba(139, 69, 19, 0.5); margin-top: 10px;">
+           Click để lật sang trang tiếp
+          </div>
+          <div class="flip-arrow">
+           ➡️
+          </div>
+         </div>
+         <div class="page-number" style="position: absolute; bottom: 30px; left: 40px; font-family: 'Crimson Text', serif; font-size: 16px; color: rgba(44, 24, 16, 0.4); font-style: italic;">
+          3
+         </div>
+        </div>
+       </div><!-- TRANG 2: Phải có thể lật -->
+       <div class="flippable-page" id="flippablePage2" style="z-index: 20;"><!-- Mặt trước (nội dung câu chuyện phần 2) -->
+        <div class="page-front">
+         <div class="story-content" id="storyContent2"></div>
+         <div class="page-number" style="position: absolute; bottom: 30px; right: 40px; font-family: 'Crimson Text', serif; font-size: 16px; color: rgba(44, 24, 16, 0.4); font-style: italic;">
+          4
+         </div>
+        </div><!-- Mặt sau (trang trống) -->
+        <div class="page-back">
+         <div class="flip-hint">
+          <div style="font-size: 64px;">
+           🏺
+          </div>
+          <div style="font-size: 28px; font-weight: 600; margin-top: 20px;">
+           Kỹ Thuật Chế Tác
+          </div>
+          <div style="font-size: 18px; color: rgba(139, 69, 19, 0.5); margin-top: 10px;">
+           Click để lật sang trang tiếp
+          </div>
+          <div class="flip-arrow">
+           ➡️
+          </div>
+         </div>
+         <div class="page-number" style="position: absolute; bottom: 30px; left: 40px; font-family: 'Crimson Text', serif; font-size: 16px; color: rgba(44, 24, 16, 0.4); font-style: italic;">
+          5
+         </div>
+        </div>
+       </div><!-- TRANG 3: Phải có thể lật -->
+       <div class="flippable-page" id="flippablePage3" style="z-index: 10;"><!-- Mặt trước (nội dung câu chuyện phần 3) -->
+        <div class="page-front">
+         <div class="story-content" id="storyContent3"></div>
+         <div class="page-number" style="position: absolute; bottom: 30px; right: 40px; font-family: 'Crimson Text', serif; font-size: 16px; color: rgba(44, 24, 16, 0.4); font-style: italic;">
+          6
+         </div>
+        </div><!-- Mặt sau (trang cuối - thông điệp kết) -->
+        <div class="page-back">
+         <div class="flip-hint">
+          <div style="font-size: 64px;">
+           ✨
+          </div>
+          <div style="font-size: 28px; font-weight: 600; margin-top: 20px;">
+           Di Sản Bất Tận
+          </div>
+          <div style="font-size: 18px; color: rgba(139, 69, 19, 0.5); margin-top: 10px; max-width: 400px; text-align: center; line-height: 1.6;">
+           Mỗi sản phẩm thủ công là một câu chuyện, mỗi câu chuyện là một phần của linh hồn dân tộc
+          </div>
+          <div class="flip-arrow" style="animation: none; margin-top: 30px;">
+           💚
+          </div>
+         </div>
+         <div class="page-number" style="position: absolute; bottom: 30px; left: 40px; font-family: 'Crimson Text', serif; font-size: 16px; color: rgba(44, 24, 16, 0.4); font-style: italic;">
+          7
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="book-controls" id="bookControls"><button class="book-control-btn" id="backToTop">↑ Về đầu trang</button> <button class="book-control-btn" id="continueExplore">Khám phá thêm</button>
+    </div>
+   </div>
+  </div>
+  <script src="script.js"></script>
+ </body>
+</html>
