@@ -1,721 +1,110 @@
- @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:wght@400;600&family=Noto+Serif:wght@400;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            box-sizing: border-box;
-        }
-        
-        html, body, .app-wrapper {
-            height: 100%;
-            width: 100%;
-        }
-        
-        .app-wrapper {
-            font-family: 'Noto Serif', serif;
-            background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #5d3a24 100%);
-            color: #fef9f3;
-            overflow: auto;
-            position: relative;
-        }
-        
-        .app-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .floating-lantern {
-            position: fixed;
-            font-size: 60px;
-            opacity: 0.15;
-            pointer-events: none;
-            filter: drop-shadow(0 10px 30px rgba(218, 165, 32, 0.3));
-            z-index: 0;
-        }
-        
-        .floating-lantern:nth-child(1) {
-            top: 10%;
-            right: 15%;
-            animation: sway1 6s ease-in-out infinite;
-        }
-        
-        .floating-lantern:nth-child(2) {
-            top: 50%;
-            left: 10%;
-            animation: sway2 8s ease-in-out infinite;
-        }
-        
-        .floating-lantern:nth-child(3) {
-            bottom: 20%;
-            right: 20%;
-            animation: sway3 7s ease-in-out infinite;
-        }
-        
-        @keyframes sway1 {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
-        }
-        
-        @keyframes sway2 {
-            0%, 100% { transform: translateY(0) rotate(3deg); }
-            50% { transform: translateY(-25px) rotate(-3deg); }
-        }
-        
-        @keyframes sway3 {
-            0%, 100% { transform: translateY(0) rotate(-4deg); }
-            50% { transform: translateY(-35px) rotate(4deg); }
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 24px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInDown 1s ease-out;
-        }
-        
-        .main-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 64px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #daa520 0%, #f4e4a8 50%, #daa520 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-            text-shadow: 0 5px 20px rgba(218, 165, 32, 0.4);
-        }
-        
-        .subtitle {
-            font-size: 22px;
-            color: #f4e4a8;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-        
-        .input-section {
-            background: rgba(139, 69, 19, 0.3);
-            backdrop-filter: blur(15px);
-            border-radius: 24px;
-            padding: 50px;
-            margin-bottom: 40px;
-            border: 2px solid rgba(218, 165, 32, 0.3);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-        
-        .input-label {
-            display: block;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #daa520;
-            letter-spacing: 0.5px;
-        }
-        
-        .craft-input {
-            width: 100%;
-            padding: 18px 24px;
-            font-size: 20px;
-            border: 2px solid rgba(218, 165, 32, 0.4);
-            border-radius: 12px;
-            background: rgba(254, 249, 243, 0.95);
-            color: #2c1810;
-            transition: all 0.3s ease;
-            font-family: 'Noto Serif', serif;
-            margin-bottom: 24px;
-        }
-        
-        .craft-input:focus {
-            outline: none;
-            border-color: #daa520;
-            box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.2);
-        }
-        
-        .craft-input::placeholder {
-            color: rgba(44, 24, 16, 0.5);
-        }
-        
-        .examples {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 32px;
-        }
-        
-        .example-tag {
-            padding: 12px 20px;
-            background: rgba(218, 165, 32, 0.2);
-            border: 2px solid rgba(218, 165, 32, 0.5);
-            border-radius: 25px;
-            font-size: 15px;
-            color: #f4e4a8;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .example-tag:hover {
-            background: rgba(218, 165, 32, 0.4);
-            border-color: #daa520;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
-        }
-        
-        .discover-button {
-            width: 100%;
-            padding: 20px 40px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #2c1810;
-            background: linear-gradient(135deg, #daa520 0%, #f4e4a8 50%, #daa520 100%);
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 25px rgba(218, 165, 32, 0.5);
-            position: relative;
-            overflow: hidden;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
-        }
-        
-        .discover-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .discover-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(218, 165, 32, 0.7);
-        }
-        
-        .discover-button:hover::before {
-            left: 100%;
-        }
-        
-        .discover-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .loading-spinner {
-            display: none;
-            width: 28px;
-            height: 28px;
-            border: 4px solid rgba(44, 24, 16, 0.3);
-            border-top-color: #2c1810;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(218, 165, 32, 0.3);
-            animation: fadeIn 1.2s ease-out 0.8s both;
-        }
-        
-        .footer-text {
-            font-size: 18px;
-            color: #f4e4a8;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Book 3D Animation Styles */
-        .book-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            transition: background 0.8s ease;
-        }
-        
-        .book-overlay.show {
-            display: flex;
-            background: rgba(0, 0, 0, 0.95);
-        }
-        
-        .book-wrapper {
-            perspective: 2500px;
-            position: relative;
-        }
-        
-        .book-3d {
-            width: 300px;
-            height: 400px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-        
-        .book-3d.zoom-in {
-            width: 1200px;
-            height: 800px;
-        }
-        
-        .book-cover {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #6d3410 100%);
-            border-radius: 8px;
-            box-shadow: 
-                0 20px 80px rgba(0, 0, 0, 0.8),
-                inset 0 0 50px rgba(0, 0, 0, 0.3);
-            transform-origin: left center;
-            transform-style: preserve-3d;
-            transition: transform 1.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #daa520;
-            text-align: center;
-            padding: 40px;
-            border: 3px solid rgba(218, 165, 32, 0.4);
-            z-index: 10;
-        }
-        
-        .book-cover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 3px,
-                rgba(0, 0, 0, 0.1) 3px,
-                rgba(0, 0, 0, 0.1) 4px
-            );
-            border-radius: 8px;
-        }
-        
-        .book-3d.open .book-cover {
-            transform: rotateY(-165deg);
-        }
-        
-        .book-pages {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            display: flex;
-        }
-        
-        .book-page {
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(135deg, #fdfbf7 0%, #f9f6f0 100%);
-            padding: 0;
-            position: absolute;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-        
-        .book-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 32px,
-                rgba(218, 165, 32, 0.03) 32px,
-                rgba(218, 165, 32, 0.03) 33px
-            );
-            pointer-events: none;
-        }
-        
-        .left-page {
-            border-radius: 8px 0 0 8px;
-            box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.1);
-            padding: 50px 40px;
-            left: 0;
-            z-index: 2;
-        }
-        
-        .flippable-page {
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            right: 0;
-            transform-origin: left center;
-            transform-style: preserve-3d;
-            transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            cursor: pointer;
-            z-index: 5;
-        }
-        
-        .flippable-page.flipped {
-            transform: rotateY(-180deg);
-        }
-        
-        .page-front,
-        .page-back {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            background: linear-gradient(135deg, #fdfbf7 0%, #f9f6f0 100%);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .page-front {
-            border-radius: 0 8px 8px 0;
-            box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.1);
-            padding: 50px 40px;
-            overflow-y: auto;
-        }
-        
-        .page-front::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 32px,
-                rgba(218, 165, 32, 0.03) 32px,
-                rgba(218, 165, 32, 0.03) 33px
-            );
-            pointer-events: none;
-        }
-        
-        .page-back {
-            transform: rotateY(180deg);
-            border-radius: 8px 0 0 8px;
-            box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.1);
-            padding: 50px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #f9f6f0 0%, #fdfbf7 100%);
-        }
-        
-        .page-back::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 32px,
-                rgba(218, 165, 32, 0.03) 32px,
-                rgba(218, 165, 32, 0.03) 33px
-            );
-            pointer-events: none;
-        }
-        
-        .flip-hint {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: rgba(139, 69, 19, 0.6);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .flip-arrow {
-            font-size: 48px;
-            animation: bounceRight 2s ease-in-out infinite;
-        }
-        
-        @keyframes bounceRight {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(20px); }
-        }
-        
-        .page-front::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        .page-front::-webkit-scrollbar-track {
-            background: rgba(218, 165, 32, 0.1);
-            border-radius: 5px;
-        }
-        
-        .page-front::-webkit-scrollbar-thumb {
-            background: rgba(139, 69, 19, 0.5);
-            border-radius: 5px;
-        }
-        
-        .craft-image-container {
-            width: 100%;
-            height: 350px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(139, 69, 19, 0.1));
-        }
-        
-        .craft-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .book-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            font-weight: 700;
-            color: #8b4513;
-            text-align: center;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-        
-        .sdg-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(76, 175, 80, 0.15);
-            border: 2px solid rgba(76, 175, 80, 0.4);
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 700;
-            color: #2e7d32;
-            margin: 0 auto;
-            width: fit-content;
-            display: flex;
-        }
-        
-        .story-content {
-            font-family: 'Crimson Text', serif;
-            font-size: 19px;
-            line-height: 2;
-            color: #2c1810;
-            text-align: justify;
-        }
-        
-        .story-content p {
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .story-content p.appear {
-            animation: textAppear 1s ease-out forwards;
-        }
-        
-        @keyframes textAppear {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .page-number {
-            position: absolute;
-            bottom: 30px;
-            font-family: 'Crimson Text', serif;
-            font-size: 16px;
-            color: rgba(44, 24, 16, 0.4);
-            font-style: italic;
-        }
-        
-        .left-page .page-number {
-            left: 40px;
-        }
-        
-        .right-page .page-number {
-            right: 40px;
-        }
-        
-        .book-controls {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 3000;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .book-controls.show {
-            opacity: 1;
-        }
-        
-        .book-control-btn {
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #daa520 0%, #f4e4a8 100%);
-            color: #2c1810;
-            border: 2px solid rgba(139, 69, 19, 0.3);
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .book-control-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.6);
-        }
-        
-        .close-book {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #daa520 0%, #f4e4a8 100%);
-            border: 3px solid rgba(139, 69, 19, 0.3);
-            border-radius: 50%;
-            color: #2c1810;
-            font-size: 32px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 3000;
-            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
-        }
-        
-        .close-book:hover {
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.7);
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 42px;
-            }
-            
-            .subtitle {
-                font-size: 18px;
-            }
-            
-            .input-section {
-                padding: 30px;
-            }
-            
-            .book-3d.zoom-in {
-                width: 95%;
-                height: 90%;
-            }
-            
-            .book-title {
-                font-size: 28px;
-            }
-            
-            .story-content {
-                font-size: 16px;
-            }
-        }
-        
-        .toast-message {
-            position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-100px);
-            background: rgba(239, 83, 80, 0.95);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            z-index: 4000;
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        
-        .toast-message.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
+body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+    .product-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    .product-image {
+      transition: transform 0.5s ease;
+    }
+    .modal-overlay {
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content {
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #D4544C 0%, #B8423B 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #E5655D 0%, #C9534C 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 84, 76, 0.35);
+    }
+    .btn-secondary {
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background: #FFF5F4;
+      border-color: #D4544C;
+    }
+    .category-btn {
+      transition: all 0.3s ease;
+    }
+    .category-btn:hover, .category-btn.active {
+      background: linear-gradient(135deg, #D4544C 0%, #B8423B 100%);
+      color: white;
+      transform: translateY(-2px);
+    }
+    .rating-star {
+      color: #FFB800;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .history-tab {
+      background: linear-gradient(135deg, #8B6914 0%, #A67C00 100%);
+    }
+    .quantity-btn {
+      transition: all 0.2s ease;
+    }
+    .quantity-btn:hover {
+      background: #D4544C;
+      color: white;
+    }
+    .nav-shadow {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .page-nav-btn {
+      background: white;
+      color: #6B7280;
+      border: 2px solid #E5E7EB;
+    }
+    .page-nav-btn.active {
+      background: linear-gradient(135deg, #D4544C 0%, #B8423B 100%);
+      color: white;
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 84, 76, 0.3);
+    }
+    .page-nav-btn:hover:not(.active) {
+      border-color: #D4544C;
+      color: #D4544C;
+    }
+    .story-card {
+      transition: all 0.3s ease;
+    }
+    .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
