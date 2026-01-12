@@ -1,9 +1,11 @@
 const defaultConfig = {
       site_name: 'VietCraft Heritage',
-      promo_text: 'MIỄN PHÍ VẬN CHUYỂN đơn hàng từ 500K • ĐỔI TRẢ MIỄN PHÍ 30 NGÀY'
+      promo_text: 'MIỄN PHÍ VẬN CHUYỂN đơn hàng từ 500K • ĐỔI TRẢ MIỄN PHÍ 30 NGÀY',
+      gemini_api_key: 'AIzaSyBd9elR7rdGqrMUKSHjPZ_YE0IiOrSU6BI'
     };
 
     let currentPage = 1;
+    let currentLanguage = 'vi'; // 'vi' hoặc 'en'
 
     function changePage(pageNum) {
       currentPage = pageNum;
@@ -47,69 +49,23 @@ const defaultConfig = {
       applyFilters();
     }
 
-    // ============================================
-    // HƯỚNG DẪN THAY ĐỔI HÌNH ẢNH SẢN PHẨM
-    // ============================================
-    // 
-    // Để thay đổi hình ảnh cho từng sản phẩm:
-    // 1. Tìm tên sản phẩm bên dưới (ví dụ: 'non-la', 'ao-dai')
-    // 2. Thay URL hình ảnh bằng link hình ảnh của bạn
-    // 3. Hình ảnh phải là link https:// (ví dụ từ Unsplash, Imgur, hoặc server của bạn)
-    //
-    // VÍ DỤ:
-    // 'non-la': 'https://example.com/hinh-non-la-cua-toi.jpg',
-    // 
-    // MỖI SẢN PHẨM TƯƠNG ỨNG VỚI 1 HÌNH ẢNH:
-    // ============================================
-
     const productImages = {
-      // 1. NÓN LÁ HUẾ - Thay link này để đổi hình nón lá
-      'non-la': 'https://file.qdnd.vn/data/images/4/2017/03/12/tvtuongvy/dsc_4358.jpg?w=500',
-      
-      // 2. ÁO DÀI - Thay link này để đổi hình áo dài
-      'ao-dai': 'https://aodainini.vn/wp-content/uploads/2024/05/z5380479199205_247cb79af5ecd9fae69f7fba7281eb12.jpg',
-      
-      // 3. LỤA VẠN PHÚC - Thay link này để đổi hình lụa
-      'lua-van-phuc': 'https://mtcs.1cdn.vn/2025/01/23/lua.jpg',
-      
-      // 4. TRỐNG ĐỒNG - Thay link này để đổi hình trống đồng
-      'trong-dong': 'https://ducphatgold.com/wp-content/uploads/2025/04/y-nghia-cac-hoa-tiet-tren-mat-trong-dong-dong-son-7.jpg',
-      
-      // 5. TRANH ĐÔNG HỒ - Thay link này để đổi hình tranh
-      'tranh-dong-ho': 'https://bizweb.dktcdn.net/100/438/304/files/tranh-dong-ho-khi-don-xuan-khung30x40.jpg?v=1690822434263',
-      
-      // 6. ĐÈN LỒNG HỘI AN - Thay link này để đổi hình đèn lồng
-      'den-long': 'https://hoiancreativecity.com/uploads/images/l%E1%BB%93ng%20%C4%91%C3%A8n%20ph%E1%BB%91.png',
-      
-      // 7. ĐÀN BẦU - Thay link này để đổi hình đàn bầu
-      'dan-bau': 'https://nhaccudantoc.com.vn/wp-content/uploads/2021/11/dan-bau-den-kham-ky.jpg',
-      
-      // 8. GỐM BÁT TRÀNG - Thay link này để đổi hình gốm
-      'gom-bat-trang': 'https://imgcdn.tapchicongthuong.vn/thumb/w_1000/tcct-media/20/8/11/bat_trang_1.jpg',
-      
-      // 9. TÚI THỔ CẨM - Thay link này để đổi hình túi thổ cẩm
-      'tui-tho-cam': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKwY24O_xrJc7Kik_5_5fAjD1W2WnxRkSRw&s',
-      
-      // 10. CHẠM KHẮC GỖ - Thay link này để đổi hình chạm khắc
-      'cham-khac-go': 'https://tl.cdnchinhphu.vn/344445545208135680/2022/8/4/img20220804102634-16595893660741733357411.jpg',
-      
-      // 11. THÊU TAY - Thay link này để đổi hình thêu
-      'theu-tay': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY0Gjnhx3Li0Ie0-39WDg8TA_vqfgd1FESvQ&s',
-      
-      // 12. SƠN MÀI - Thay link này để đổi hình sơn mài
-      'son-mai': 'https://canocxacu.com/upload/son-mai-la-gi2-04-12-2017-13-01-06.jpg',
-      
-      // 13. ĐÀN NGUYỆT - Thay link này để đổi hình đàn nguyệt
-      'dan-nguyet': 'https://nhaccuphongvan.vn/dan-nguyet-go-mun-den-cao-cap/z3320000255349_0b762dd46c9726fb3074360ab8a52736/',
-      
-      // 14. KHĂN RẰNG NAM BỘ - Thay link này để đổi hình khăn rằn
-      'khan-ran': 'https://khankm0.com/media/uploads/KH%C4%82N%20R%E1%BA%B0N%202023/khan-ran-ri-ben-tre%20(1).jpg',
-      
-      // 15. GUỐC MỘC - Thay link này để đổi hình guốc mộc
-      'guoc-moc': 'https://product.hstatic.net/1000360703/product/guoc_5f_b184__4__d887dd5118724ad681d2fcb83723b9c9_master.jpg',
-      
-      // 16. MÀNH TRE - Thay link này để đổi hình mành tre
-      'manh-tre': 'https://bizweb.dktcdn.net/100/424/988/products/manh-tre-vang-ff64953a-4dab-45a3-aab9-a17ab9f9f214.jpg?v=1760441266947'
+      'non-la': 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80',
+      'ao-dai': 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=500&q=80',
+      'lua-van-phuc': 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80',
+      'trong-dong': 'https://images.unsplash.com/photo-1582043786804-8c4c1a6b63a0?w=500&q=80',
+      'tranh-dong-ho': 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&q=80',
+      'den-long': 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&q=80',
+      'dan-bau': 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&q=80',
+      'gom-bat-trang': 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=500&q=80',
+      'tui-tho-cam': 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500&q=80',
+      'cham-khac-go': 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&q=80',
+      'theu-tay': 'https://images.unsplash.com/photo-1558769132-cb1aea41f9f5?w=500&q=80',
+      'son-mai': 'https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=500&q=80',
+      'dan-nguyet': 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=500&q=80',
+      'khan-ran': 'https://images.unsplash.com/photo-1520006403909-838d6b92c22e?w=500&q=80',
+      'guoc-moc': 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&q=80',
+      'manh-tre': 'https://images.unsplash.com/photo-1452457807411-4979b707c5be?w=500&q=80'
     };
 
     function formatPrice(price) {
@@ -129,7 +85,6 @@ const defaultConfig = {
       return stars;
     }
 
-    // Tạo 72 sản phẩm với hình ảnh và tên khớp nhau
     const products = [];
     const badges = ['Bán chạy', 'Premium', 'Di sản', 'Hot', 'Độc đáo', 'Thủ công', 'Cao cấp', '-20%', 'Mới', 'Phổ biến'];
     const badgeColors = ['bg-red-500', 'bg-amber-500', 'bg-green-500', 'bg-orange-500', 'bg-purple-500', 'bg-teal-500', 'bg-blue-500', 'bg-pink-500', 'bg-indigo-500', 'bg-cyan-500'];
@@ -143,7 +98,7 @@ const defaultConfig = {
       { name: 'Đèn Lồng Hội An', image: 'den-long', category: 'decor' },
       { name: 'Đàn Bầu Truyền Thống', image: 'dan-bau', category: 'instrument' },
       { name: 'Gốm Sứ Bát Tràng', image: 'gom-bat-trang', category: 'decor' },
-      { name: 'Túi Thổ Cẩm Tây Nguyên', image: 'tui-tho-cam', category: 'accessories' },
+      { name: 'Túi Thổ C��m Tây Nguyên', image: 'tui-tho-cam', category: 'accessories' },
       { name: 'Chạm Khắc Gỗ Mỹ Nghệ', image: 'cham-khac-go', category: 'art' },
       { name: 'Thêu Tay Xứ Huế', image: 'theu-tay', category: 'art' },
       { name: 'Tranh Sơn Mài Hà Nội', image: 'son-mai', category: 'art' },
@@ -171,9 +126,9 @@ const defaultConfig = {
         image: product.image,
         badge: badges[Math.floor(Math.random() * badges.length)],
         badgeColor: badgeColors[Math.floor(Math.random() * badgeColors.length)],
-        history: {
-          story: `Câu chuyện về ${product.name}\n\nNgày xưa, vào một buổi sớm mai trên vùng đất Việt Nam, khi mặt trời vừa ló dạng sau những ngọn núi xa xa, có một nghệ nhân tài ba ngồi dưới gốc cây đa cổ thụ. Ông nhìn ra cánh đồng lúa chín vàng, nghe tiếng chim hót véo von, và trong lòng nảy sinh một ý tưởng tuyệt vời.\n\nÔng nghĩ rằng: "Tại sao ta không tạo ra một món đồ vừa đẹp mắt, vừa hữu ích, để con cháu mai sau có thể nhớ về văn hóa và truyền thống của tổ tiên?"\n\nVà thế là, ông bắt tay vào công việc. Từng ngày, từng tháng trôi qua, ông miệt mài với những vật liệu đơn giản nhưng chứa đựng cả tâm hồn: tre, gỗ, lụa, đất sét... Mỗi đường nét, mỗi họa tiết đều được khắc họa tỉ mỉ, như thể ông đang kể lại câu chuyện về quê hương, về đất nước, về những con người lam lũ nhưng luôn kiên cường.\n\nKhi sản phẩm hoàn thành, cả làng đều tập trung lại để chiêm ngưỡng. Họ thán phục trước sự tinh xảo, trước vẻ đẹp thuần khiết mang đậm bản sắc dân tộc. Từ đó, nghề thủ công này được truyền từ thế hệ này sang thế hệ khác, trở thành niềm tự hào của cả vùng đất.\n\nNgười ta kể rằng, mỗi khi cầm trên tay món đồ này, bạn không chỉ sở hữu một sản phẩm, mà còn nắm giữ cả một phần lịch sử, một phần văn hóa ngàn năm của dân tộc Việt Nam. Đó là tình yêu quê hương, là sự cần cù, là nét đẹp truyền thống mà tổ tiên ta đã gửi gắm qua bao thế hệ.\n\nVà câu chuyện này, vẫn tiếp tục được lưu truyền cho đến ngày hôm nay...`
-        }
+        aiStoryVi: null,
+        aiStoryEn: null,
+        loadingStory: false
       });
     }
 
@@ -187,6 +142,62 @@ const defaultConfig = {
     let wishlist = [];
     let compareList = [];
     let recentlyViewed = [];
+
+    async function generateAIStory(productName, productCategory, language) {
+
+  const categoryNames = {
+    'clothing': language === 'vi' ? 'trang phục' : 'clothing',
+    'accessories': language === 'vi' ? 'phụ kiện' : 'accessories',
+    'decor': language === 'vi' ? 'trang trí' : 'decoration',
+    'art': language === 'vi' ? 'nghệ thuật' : 'art',
+    'instrument': language === 'vi' ? 'nhạc cụ' : 'musical instrument'
+  };
+
+  const prompt = language === 'vi' 
+    ? `Viết một câu chuyện văn hóa Việt Nam ngắn gọn (khoảng 700-900 từ) về "${productName}" - một sản phẩm ${categoryNames[productCategory]} truyền thống. Câu chuyện nên bao gồm:
+- Nguồn gốc lịch sử
+- Ý nghĩa văn hóa
+- Quy trình làm thủ công
+- Giá trị truyền thống
+
+Viết bằng giọng điệu ấm áp, gần gũi, tôn vinh di sản văn hóa Việt Nam.`
+    : `WRITTEN ENTIRELY IN ENGLISH. Write a detailed Vietnamese cultural story (about 800-1000 words) about "${productName}" - a traditional ${categoryNames[productCategory]} product.
+     IMPORTANT: Even though the product name is in Vietnamese, the response MUST be in English.
+     Structure:
+     - Historical origins
+     - Cultural significance
+     - Detailed traditional craftsmanship process
+     - Traditional values.
+     Tone: Warm, honoring cultural heritage.`;
+
+  try {
+    const formData = new URLSearchParams();
+    formData.append("prompt", prompt);
+
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbyGSJKFDPOspqBvoy8IIr_8PENMP9PdlFx7Pvw6-wSeXOrFp8425ZnXSeaafEKncv2-LA/exec",
+      {
+        method: "POST",
+        body: formData   // 👈 KHÔNG set headers JSON
+      }
+    );
+
+    const text = await response.text();
+    console.log("RAW RESPONSE:", text);
+
+    if (!response.ok) {
+      throw new Error(text);
+    }
+
+    const data = JSON.parse(text);
+    return data.story || null;
+
+  } catch (error) {
+    console.error("Error generating AI story:", error);
+    return null;
+  }
+}
+
 
     function updateCompareUI() {
       const count = compareList.length;
@@ -598,6 +609,7 @@ const defaultConfig = {
       currentProduct = products.find(p => p.id === productId);
       showHistory = false;
       quantity = 1;
+      currentLanguage = 'vi';
       addToRecentlyViewed(productId);
       renderRecentlyViewed();
       renderModal();
@@ -640,9 +652,44 @@ const defaultConfig = {
       document.body.style.overflow = '';
     }
 
-    function toggleHistory() {
+    async function toggleHistory() {
       showHistory = !showHistory;
+      
+      if (showHistory) {
+        const langKey = currentLanguage === 'vi' ? 'aiStoryVi' : 'aiStoryEn';
+        
+        if (!currentProduct[langKey] && !currentProduct.loadingStory) {
+          currentProduct.loadingStory = true;
+          renderModal();
+          
+          const story = await generateAIStory(currentProduct.name, currentProduct.category, currentLanguage);
+          currentProduct[langKey] = story;
+          currentProduct.loadingStory = false;
+        }
+      }
+      
       renderModal();
+    }
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'vi' ? 'en' : 'vi';
+      
+      if (showHistory) {
+        const langKey = currentLanguage === 'vi' ? 'aiStoryVi' : 'aiStoryEn';
+        
+        if (!currentProduct[langKey] && !currentProduct.loadingStory) {
+          currentProduct.loadingStory = true;
+          renderModal();
+          
+          generateAIStory(currentProduct.name, currentProduct.category, currentLanguage).then(story => {
+            currentProduct[langKey] = story;
+            currentProduct.loadingStory = false;
+            renderModal();
+          });
+        } else {
+          renderModal();
+        }
+      }
     }
 
     function updateQuantity(delta) {
@@ -654,6 +701,11 @@ const defaultConfig = {
       if (!currentProduct) return;
       const p = currentProduct;
       const discount = Math.round((1 - p.price / p.originalPrice) * 100);
+      
+      const langKey = currentLanguage === 'vi' ? 'aiStoryVi' : 'aiStoryEn';
+      const currentStory = p[langKey];
+      const apiKey = window.elementSdk?.config?.gemini_api_key || defaultConfig.gemini_api_key;
+      const hasApiKey = apiKey && apiKey.trim() !== '';
       
       document.getElementById('modal-content').innerHTML = `
         <div class="relative">
@@ -701,7 +753,7 @@ const defaultConfig = {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                     </svg>
-                    Khám phá Nguồn gốc & Lịch sử
+                    ${hasApiKey ? 'Khám phá Nguồn gốc & Lịch sử (AI)' : 'Khám phá Nguồn gốc & Lịch sử'}
                   </button>
                   
                   <div class="space-y-3 pt-2">
@@ -744,7 +796,7 @@ const defaultConfig = {
                           <span class="font-medium text-sm">Nguyễn Thu H.</span>
                           <span class="text-xs text-gray-500">• 2 ngày trước</span>
                         </div>
-                        <p class="text-sm text-gray-700">Sản phẩm đẹp, chất lượng tốt. Đúng như mô tả. Giao hàng nhanh!</p>
+                        <p class="text-sm text-gray-700">Sản ph���m đẹp, chất lượng tốt. Đúng như mô tả. Giao hàng nhanh!</p>
                       </div>
                       <div class="bg-gray-50 rounded-lg p-4">
                         <div class="flex items-center gap-2 mb-2">
@@ -792,20 +844,88 @@ const defaultConfig = {
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
-                    Quay lại thông tin sản phẩm
+                    ${currentLanguage === 'vi' ? 'Quay lại thông tin sản phẩm' : 'Back to product info'}
                   </button>
                   
                   <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
-                    <h3 class="font-display text-xl font-bold text-amber-800 mb-1">Nguồn gốc & Lịch sử</h3>
-                    <p class="text-amber-700 text-sm">${p.name}</p>
+                    <div class="flex items-center justify-between mb-2">
+                      <div>
+                        <h3 class="font-display text-xl font-bold text-amber-800 mb-1">
+                          ${currentLanguage === 'vi' ? 'Nguồn gốc & Lịch sử' : 'Origin & History'}
+                        </h3>
+                        <p class="text-amber-700 text-sm">${p.name}</p>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs font-medium text-gray-600">${currentLanguage === 'vi' ? 'VI' : 'EN'}</span>
+                        <label class="language-toggle">
+                          <input type="checkbox" ${currentLanguage === 'en' ? 'checked' : ''} onchange="toggleLanguage()">
+                          <span class="language-slider"></span>
+                          <span class="language-label vi">VI</span>
+                          <span class="language-label en">EN</span>
+                        </label>
+                      </div>
+                    </div>
+                    ${hasApiKey ? `<p class="text-xs text-amber-600 flex items-center gap-1">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 7H7v6h6V7z"/>
+                        <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd"/>
+                      </svg>
+                      ${currentLanguage === 'vi' ? 'Được tạo bởi VietCraft' : 'Generated by VietCraft'}
+                    </p>` : ''}
                   </div>
                   
-                  <div class="prose prose-gray max-w-none">
-                    ${p.history.story.split('\n\n').map(para => `<p class="text-gray-700 leading-relaxed mb-4 text-justify">${para}</p>`).join('')}
-                  </div>
+                  ${p.loadingStory ? `
+                    <div class="flex flex-col items-center justify-center py-12 gap-4">
+                      <div class="w-12 h-12 border-4 border-amber-200 border-t-amber-600 rounded-full animate-spin"></div>
+                      <p class="text-gray-600 font-medium">
+                        ${currentLanguage === 'vi' ? 'Đang tạo câu chuyện bằng AI...' : 'Generating story with AI...'}
+                      </p>
+                      <p class="text-sm text-gray-500">
+                        ${currentLanguage === 'vi' ? 'Vui lòng chờ trong giây lát' : 'Please wait a moment'}
+                      </p>
+                    </div>
+                  ` : currentStory ? `
+                    <div class="prose prose-gray max-w-none">
+                      ${currentStory.split('\n\n').map(para => `<p class="text-gray-700 leading-relaxed mb-4 text-justify">${para.replace(/\n/g, '<br>')}</p>`).join('')}
+                    </div>
+                  ` : !hasApiKey ? `
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">
+                      <svg class="w-12 h-12 text-blue-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <h4 class="font-semibold text-blue-900 mb-2">
+                        ${currentLanguage === 'vi' ? 'Cần API Key để sử dụng AI' : 'API Key Required for AI'}
+                      </h4>
+                      <p class="text-sm text-blue-700 mb-4">
+                        ${currentLanguage === 'vi' 
+                          ? 'Để sử dụng tính năng tạo câu chuyện bằng AI, vui lòng nhập Gemini API Key trong phần cài đặt.' 
+                          : 'To use AI story generation, please enter your Gemini API Key in settings.'}
+                      </p>
+                      <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                        ${currentLanguage === 'vi' ? 'Lấy API Key miễn phí' : 'Get Free API Key'}
+                      </a>
+                    </div>
+                  ` : `
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
+                      <svg class="w-12 h-12 text-red-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <h4 class="font-semibold text-red-900 mb-2">
+                        ${currentLanguage === 'vi' ? 'Không thể tạo câu chuyện' : 'Cannot Generate Story'}
+                      </h4>
+                      <p class="text-sm text-red-700">
+                        ${currentLanguage === 'vi' 
+                          ? 'Có lỗi xảy ra khi kết nối với AI. Vui lòng kiểm tra API Key và thử lại.' 
+                          : 'Error connecting to AI. Please check your API Key and try again.'}
+                      </p>
+                    </div>
+                  `}
                   
                   <button onclick="toggleHistory()" class="w-full btn-primary text-white py-3.5 rounded-xl font-semibold mt-4">
-                    Quay lại mua hàng
+                    ${currentLanguage === 'vi' ? 'Quay lại mua hàng' : 'Back to Shopping'}
                   </button>
                 </div>
               `}
@@ -1381,7 +1501,8 @@ const defaultConfig = {
             <div class="p-8 flex flex-col justify-center ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}">
               <h3 class="font-display text-3xl font-bold text-gray-900 mb-4">${story.name}</h3>
               <div class="prose prose-gray">
-                ${story.history.story.split('\n\n').slice(0, 3).map(para => `<p class="text-gray-600 leading-relaxed mb-4">${para}</p>`).join('')}
+                <p class="text-gray-600 leading-relaxed mb-4">Khám phá câu chuyện văn hóa độc đáo và nguồn gốc lịch sử đầy ý nghĩa của ${story.name}. Mỗi sản phẩm mang trong mình tinh hoa nghệ thuật và bàn tay tài hoa của các nghệ nhân Việt Nam.</p>
+                <p class="text-gray-600 leading-relaxed mb-4">Được chế tác từ những nguyên liệu truyền thống, qua bàn tay khéo léo của những người thợ lành nghề, sản phẩm không chỉ là vật dụng mà còn là tác phẩm nghệ thuật mang đậm dấu ấn văn hóa dân tộc.</p>
               </div>
               <button onclick="openModal(${story.id})" class="mt-4 text-red-600 font-semibold hover:underline">Đọc thêm →</button>
             </div>
@@ -1419,7 +1540,8 @@ const defaultConfig = {
         }),
         mapToEditPanelValues: (config) => new Map([
           ['site_name', config.site_name || defaultConfig.site_name],
-          ['promo_text', config.promo_text || defaultConfig.promo_text]
+          ['promo_text', config.promo_text || defaultConfig.promo_text],
+          ['gemini_api_key', config.gemini_api_key || defaultConfig.gemini_api_key]
         ])
       });
     } else {

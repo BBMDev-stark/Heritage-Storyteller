@@ -6,10 +6,11 @@
   <title>VietCraft Heritage</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="style.css">
+  
   <style>@view-transition { navigation: auto; }</style>
  </head>
+ 
  <body class="h-full bg-white">
   <div id="app" class="h-full overflow-auto"><!-- Navigation -->
    <nav class="bg-white nav-shadow sticky top-0 z-40">
@@ -56,7 +57,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
      <div class="flex items-center justify-center gap-2 text-sm">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-      </svg><span id="promo-text" class="font-medium">MIỄN PHÍ VẬN CHUY���N đơn hàng từ 500K • ĐỔI TRẢ MIỄN PHÍ 30 NGÀY</span>
+      </svg><span id="promo-text" class="font-medium">MIỄN PHÍ VẬN CHUYỂN đơn hàng từ 500K • ĐỔI TRẢ MIỄN PHÍ 30 NGÀY</span>
      </div>
     </div>
    </div><!-- Page Navigation -->
@@ -140,7 +141,7 @@
       <div class="flex items-center gap-3">
        <div class="flex items-center gap-2"><span class="text-sm text-gray-500">Khoảng giá:</span> <select id="price-filter" onchange="applyFilters()" class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-400"> <option value="all">Tất cả</option> <option value="0-500k">Dưới 500k</option> <option value="500k-1m">500k - 1 triệu</option> <option value="1m-3m">1 triệu - 3 triệu</option> <option value="3m+">Trên 3 triệu</option> </select>
        </div>
-       <div class="flex items-center gap-2"><span class="text-sm text-gray-500">Sắp xếp:</span> <select id="sort-filter" onchange="applyFilters()" class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-400"> <option value="popular">Phổ biến</option> <option value="price-asc">Giá thấp đến cao</option> <option value="price-desc">Giá cao đến thấp</option> <option value="newest">Mới nhất</option> <option value="rating">Đánh giá cao</option> </select>
+       <div class="flex items-center gap-2"><span class="text-sm text-gray-500">Sắp xếp:</span> <select id="sort-filter" onchange="applyFilters()" class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-400"> <option value="popular">Phổ biến</option> <option value="price-asc">Giá th���p đến cao</option> <option value="price-desc">Giá cao đến thấp</option> <option value="newest">Mới nhất</option> <option value="rating">Đánh giá cao</option> </select>
        </div>
       </div>
      </div>
@@ -204,7 +205,7 @@
        <h4 class="font-semibold mb-4">Hỗ trợ</h4>
        <ul class="space-y-2 text-sm text-gray-400">
         <li><a href="#" class="hover:text-white transition-colors">Trung tâm trợ giúp</a></li>
-        <li><a href="#" class="hover:text-white transition-colors">Hướng dẫn mua hàng</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">Hướng d���n mua hàng</a></li>
         <li><a href="#" class="hover:text-white transition-colors">Hướng dẫn thanh toán</a></li>
         <li><a href="#" class="hover:text-white transition-colors">Chính sách vận chuyển</a></li>
         <li><a href="#" class="hover:text-white transition-colors">Theo dõi đơn hàng</a></li>
@@ -270,7 +271,7 @@
      <div id="cart-items" class="flex-1 overflow-auto p-6"><!-- Cart items will be rendered here -->
      </div>
      <div class="border-t p-6">
-      <div class="flex items-center justify-between mb-4"><span class="text-gray-600">Tạm tính:</span> <span id="cart-total" class="text-2xl font-bold text-gray-900">0đ</span>
+      <div class="flex items-center justify-between mb-4"><span class="text-gray-600">Tạm tính:</span> <span id="cart-total" class="text-2xl font-bold text-gray-900">0��</span>
       </div><button onclick="startCheckout()" id="checkout-btn" class="btn-primary w-full text-white py-4 rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled> Tiến hành thanh toán </button>
       <p class="text-center text-sm text-gray-500 mt-3">Miễn phí vận chuyển cho đơn từ 500.000đ</p>
      </div>

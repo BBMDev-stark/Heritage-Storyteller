@@ -108,3 +108,71 @@ body {
       transform: translateY(-4px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
+    .language-toggle {
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height: 36px;
+    }
+    .language-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .language-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+    .language-slider:before {
+      position: absolute;
+      content: "";
+      height: 28px;
+      width: 28px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .language-toggle input:checked + .language-slider {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    }
+    .language-toggle input:checked + .language-slider:before {
+      transform: translateX(44px);
+    }
+    .language-label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .language-label.vi {
+      left: 10px;
+    }
+    .language-label.en {
+      right: 10px;
+    }
+    .language-toggle input:checked ~ .language-label.vi {
+      opacity: 0.5;
+    }
+    .language-toggle input:not(:checked) ~ .language-label.en {
+      opacity: 0.5;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
