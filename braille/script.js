@@ -50,22 +50,53 @@ const defaultConfig = {
     }
 
     const productImages = {
-      'non-la': 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80',
-      'ao-dai': 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=500&q=80',
-      'lua-van-phuc': 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80',
-      'trong-dong': 'https://images.unsplash.com/photo-1582043786804-8c4c1a6b63a0?w=500&q=80',
-      'tranh-dong-ho': 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&q=80',
-      'den-long': 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&q=80',
-      'dan-bau': 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500&q=80',
-      'gom-bat-trang': 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=500&q=80',
-      'tui-tho-cam': 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500&q=80',
-      'cham-khac-go': 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&q=80',
-      'theu-tay': 'https://images.unsplash.com/photo-1558769132-cb1aea41f9f5?w=500&q=80',
-      'son-mai': 'https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=500&q=80',
-      'dan-nguyet': 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=500&q=80',
-      'khan-ran': 'https://images.unsplash.com/photo-1520006403909-838d6b92c22e?w=500&q=80',
-      'guoc-moc': 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&q=80',
-      'manh-tre': 'https://images.unsplash.com/photo-1452457807411-4979b707c5be?w=500&q=80'
+      // 1. NÓN LÁ HUẾ - Thay link này để đổi hình nón lá
+      'non-la': 'https://file.qdnd.vn/data/images/4/2017/03/12/tvtuongvy/dsc_4358.jpg?w=500',
+      
+      // 2. ÁO DÀI - Thay link này để đổi hình áo dài
+      'ao-dai': 'https://aodainini.vn/wp-content/uploads/2024/05/z5380479199205_247cb79af5ecd9fae69f7fba7281eb12.jpg',
+      
+      // 3. LỤA VẠN PHÚC - Thay link này để đổi hình lụa
+      'lua-van-phuc': 'https://mtcs.1cdn.vn/2025/01/23/lua.jpg',
+      
+      // 4. TRỐNG ĐỒNG - Thay link này để đổi hình trống đồng
+      'trong-dong': 'https://ducphatgold.com/wp-content/uploads/2025/04/y-nghia-cac-hoa-tiet-tren-mat-trong-dong-dong-son-7.jpg',
+      
+      // 5. TRANH ĐÔNG HỒ - Thay link này để đổi hình tranh
+      'tranh-dong-ho': 'https://bizweb.dktcdn.net/100/438/304/files/tranh-dong-ho-khi-don-xuan-khung30x40.jpg?v=1690822434263',
+      
+      // 6. ĐÈN LỒNG HỘI AN - Thay link này để đổi hình đèn lồng
+      'den-long': 'https://hoiancreativecity.com/uploads/images/l%E1%BB%93ng%20%C4%91%C3%A8n%20ph%E1%BB%91.png',
+      
+      // 7. ĐÀN BẦU - Thay link này để đổi hình đàn bầu
+      'dan-bau': 'https://nhaccudantoc.com.vn/wp-content/uploads/2021/11/dan-bau-den-kham-ky.jpg',
+      
+      // 8. GỐM BÁT TRÀNG - Thay link này để đổi hình gốm
+      'gom-bat-trang': 'https://imgcdn.tapchicongthuong.vn/thumb/w_1000/tcct-media/20/8/11/bat_trang_1.jpg',
+      
+      // 9. TÚI THỔ CẨM - Thay link này để đổi hình túi thổ cẩm
+      'tui-tho-cam': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKwY24O_xrJc7Kik_5_5fAjD1W2WnxRkSRw&s',
+      
+      // 10. CHẠM KHẮC GỖ - Thay link này để đổi hình chạm khắc
+      'cham-khac-go': 'https://tl.cdnchinhphu.vn/344445545208135680/2022/8/4/img20220804102634-16595893660741733357411.jpg',
+      
+      // 11. THÊU TAY - Thay link này để đổi hình thêu
+      'theu-tay': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY0Gjnhx3Li0Ie0-39WDg8TA_vqfgd1FESvQ&s',
+      
+      // 12. SƠN MÀI - Thay link này để đổi hình sơn mài
+      'son-mai': 'https://canocxacu.com/upload/son-mai-la-gi2-04-12-2017-13-01-06.jpg',
+      
+      // 13. ĐÀN NGUYỆT - Thay link này để đổi hình đàn nguyệt
+      'dan-nguyet': 'https://nhaccuphongvan.vn/dan-nguyet-go-mun-den-cao-cap/z3320000255349_0b762dd46c9726fb3074360ab8a52736/',
+      
+      // 14. KHĂN RẰNG NAM BỘ - Thay link này để đổi hình khăn rằn
+      'khan-ran': 'https://khankm0.com/media/uploads/KH%C4%82N%20R%E1%BA%B0N%202023/khan-ran-ri-ben-tre%20(1).jpg',
+      
+      // 15. GUỐC MỘC - Thay link này để đổi hình guốc mộc
+      'guoc-moc': 'https://product.hstatic.net/1000360703/product/guoc_5f_b184__4__d887dd5118724ad681d2fcb83723b9c9_master.jpg',
+      
+      // 16. MÀNH TRE - Thay link này để đổi hình mành tre
+'manh-tre': 'https://bizweb.dktcdn.net/100/424/988/products/manh-tre-vang-ff64953a-4dab-45a3-aab9-a17ab9f9f214.jpg?v=1760441266947'
     };
 
     function formatPrice(price) {
