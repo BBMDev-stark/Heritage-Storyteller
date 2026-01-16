@@ -129,7 +129,7 @@ const defaultConfig = {
       { name: 'Đèn Lồng Hội An', image: 'den-long', category: 'decor' },
       { name: 'Đàn Bầu Truyền Thống', image: 'dan-bau', category: 'instrument' },
       { name: 'Gốm Sứ Bát Tràng', image: 'gom-bat-trang', category: 'decor' },
-      { name: 'Túi Thổ C��m Tây Nguyên', image: 'tui-tho-cam', category: 'accessories' },
+      { name: 'Túi Thổ Cẩm Tây Nguyên', image: 'tui-tho-cam', category: 'accessories' },
       { name: 'Chạm Khắc Gỗ Mỹ Nghệ', image: 'cham-khac-go', category: 'art' },
       { name: 'Thêu Tay Xứ Huế', image: 'theu-tay', category: 'art' },
       { name: 'Tranh Sơn Mài Hà Nội', image: 'son-mai', category: 'art' },
