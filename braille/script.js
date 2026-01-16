@@ -827,7 +827,7 @@ Viết bằng giọng điệu ấm áp, gần gũi, tôn vinh di sản văn hóa
                           <span class="font-medium text-sm">Nguyễn Thu H.</span>
                           <span class="text-xs text-gray-500">• 2 ngày trước</span>
                         </div>
-                        <p class="text-sm text-gray-700">Sản ph���m đẹp, chất lượng tốt. Đúng như mô tả. Giao hàng nhanh!</p>
+                        <p class="text-sm text-gray-700">Sản phẩm đẹp, chất lượng tốt. Đúng như mô tả. Giao hàng nhanh!</p>
                       </div>
                       <div class="bg-gray-50 rounded-lg p-4">
                         <div class="flex items-center gap-2 mb-2">
